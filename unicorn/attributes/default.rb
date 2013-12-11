@@ -1,7 +1,7 @@
 if node[:sinatra] || node[:web_application_type] == 'sinatra'
   include_attribute 'sinatra::default'
 elsif node[:rails] || node[:web_application_type] == 'rails'
-  include_attribute 'rails'
+  include_attribute 'rails::rails'
 end
 
 default[:unicorn][:worker_processes] = if node[:rails] && node[:rails][:max_pool_size]
